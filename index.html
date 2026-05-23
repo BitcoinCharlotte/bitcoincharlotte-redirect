@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Redirecting… — Bitcoin Charlotte</title>
+  <meta name="robots" content="noindex">
+
+  <!-- No-JS fallback: meta refresh preserves the path but NOT the hash.
+       The JS path below handles the hash correctly when JS is enabled. -->
+  <meta http-equiv="refresh" content="0; url=https://bitcoinwallet.guide/">
+
+  <link rel="canonical" href="https://bitcoinwallet.guide/">
+
+  <style>
+    :root { color-scheme: dark; }
+    html, body {
+      margin: 0; padding: 0; height: 100%;
+      background: #0d1117; color: #c9d1d9;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    }
+    body { display: flex; align-items: center; justify-content: center; }
+    .wrap { text-align: center; padding: 24px; }
+    h1 { color: #f7931a; font-size: 1.5rem; margin: 0 0 8px; font-weight: 600; }
+    p  { margin: 0; color: #8b949e; font-size: 0.95rem; }
+    a  { color: #f7931a; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Redirecting to BitcoinWallet.Guide…</h1>
+    <p>If you're not redirected, <a id="manual" href="https://bitcoinwallet.guide/">click here</a>.</p>
+  </div>
+
+  <script>
+    // Preserve the hash (#w=...&c=...) when redirecting.
+    // Hashes don't get sent to the server, so this can only happen client-side.
+    (function () {
+      var target = "https://bitcoinwallet.guide/";
+      var hash = window.location.hash || "";
+      var search = window.location.search || "";
+      var dest = target + search + hash;
+      document.getElementById("manual").href = dest;
+      // Use replace() so the redirect doesn't pollute browser history / back button.
+      window.location.replace(dest);
+    })();
+  </script>
+</body>
+</html>
