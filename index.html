@@ -6,9 +6,8 @@
   <title>Redirecting… — Bitcoin Charlotte</title>
   <meta name="robots" content="noindex">
 
-  <!-- No-JS fallback: meta refresh preserves the path but NOT the hash.
-       The JS path below handles the hash correctly when JS is enabled.
-       This fallback sends users straight to the default Bitcoin Charlotte picks. -->
+  <!-- Hardcoded redirect to Bitcoin Charlotte's curated wallet picks.
+       Subdomain has one job: send every visitor to this exact URL. -->
   <meta http-equiv="refresh" content="0; url=https://bitcoinwallet.guide/#w=muun,strike,bitkey&c=Rc4_T8NADAXwvZ_ibdCBi9QJdaMgJAYm2CqGa-I2Vu7s6uxLlG-PlP4b7We9n397MkIshP2OvVUWvPexJHWnJ_t77t3P26Y5XLL2FgUtpzUKtZozSUcdppgSuQV86CRJYxdCWK32P154oEuPbZuGZWSnYMs6ZGreN69vX59ruOJQZ1whROnQx5EQYZWdoEeo91RuFy8qaYZRGbklC6v9d63ycHKtElrNzdJsA59hfJJ6tqXaiDD10VGN5XRX2ZB4ILAgkRm8j4INMkv1BdmxDzQ_mMMyh0lL6po1jlrgPSGrOVqVkYRJ_Eq2tRCmOC8fuRa6u0nlBKeSwz8">
 
   <link rel="canonical" href="https://bitcoinwallet.guide/">
@@ -31,32 +30,11 @@
 <body>
   <div class="wrap">
     <h1>Redirecting to BitcoinWallet.Guide…</h1>
-    <p>If you're not redirected, <a id="manual" href="https://bitcoinwallet.guide/">click here</a>.</p>
+    <p>If you're not redirected, <a href="https://bitcoinwallet.guide/#w=muun,strike,bitkey&c=Rc4_T8NADAXwvZ_ibdCBi9QJdaMgJAYm2CqGa-I2Vu7s6uxLlG-PlP4b7We9n397MkIshP2OvVUWvPexJHWnJ_t77t3P26Y5XLL2FgUtpzUKtZozSUcdppgSuQV86CRJYxdCWK32P154oEuPbZuGZWSnYMs6ZGreN69vX59ruOJQZ1whROnQx5EQYZWdoEeo91RuFy8qaYZRGbklC6v9d63ycHKtElrNzdJsA59hfJJ6tqXaiDD10VGN5XRX2ZB4ILAgkRm8j4INMkv1BdmxDzQ_mMMyh0lL6po1jlrgPSGrOVqVkYRJ_Eq2tRCmOC8fuRa6u0nlBKeSwz8">click here</a>.</p>
   </div>
 
   <script>
-    // Redirect rules:
-    //   1) If the user arrived with a hash (#w=...&c=...) — preserve it exactly.
-    //      That's how QR-encoded share URLs work: they bake the picks into the hash.
-    //   2) If the user arrived with no hash (bare subdomain visit) — send them to
-    //      the default Bitcoin Charlotte curated picks (Muun + Strike + Bitkey).
-    // Hashes don't get sent to the server, so this can only happen client-side.
-    (function () {
-      var apex = "https://bitcoinwallet.guide/";
-      // Default share URL: Bitcoin Charlotte's curated picks.
-      // Update this constant if Bitcoin Charlotte changes its default recommendation.
-      var defaultHash = "#w=muun,strike,bitkey&c=Rc4_T8NADAXwvZ_ibdCBi9QJdaMgJAYm2CqGa-I2Vu7s6uxLlG-PlP4b7We9n397MkIshP2OvVUWvPexJHWnJ_t77t3P26Y5XLL2FgUtpzUKtZozSUcdppgSuQV86CRJYxdCWK32P154oEuPbZuGZWSnYMs6ZGreN69vX59ruOJQZ1whROnQx5EQYZWdoEeo91RuFy8qaYZRGbklC6v9d63ycHKtElrNzdJsA59hfJJ6tqXaiDD10VGN5XRX2ZB4ILAgkRm8j4INMkv1BdmxDzQ_mMMyh0lL6po1jlrgPSGrOVqVkYRJ_Eq2tRCmOC8fuRa6u0nlBKeSwz8";
-
-      var hash = window.location.hash || "";
-      var search = window.location.search || "";
-
-      // If the visitor brought their own hash, keep it. Otherwise inject the default.
-      var dest = apex + search + (hash || defaultHash);
-
-      document.getElementById("manual").href = dest;
-      // Use replace() so the redirect doesn't pollute browser history / back button.
-      window.location.replace(dest);
-    })();
+    window.location.replace("https://bitcoinwallet.guide/#w=muun,strike,bitkey&c=Rc4_T8NADAXwvZ_ibdCBi9QJdaMgJAYm2CqGa-I2Vu7s6uxLlG-PlP4b7We9n397MkIshP2OvVUWvPexJHWnJ_t77t3P26Y5XLL2FgUtpzUKtZozSUcdppgSuQV86CRJYxdCWK32P154oEuPbZuGZWSnYMs6ZGreN69vX59ruOJQZ1whROnQx5EQYZWdoEeo91RuFy8qaYZRGbklC6v9d63ycHKtElrNzdJsA59hfJJ6tqXaiDD10VGN5XRX2ZB4ILAgkRm8j4INMkv1BdmxDzQ_mMMyh0lL6po1jlrgPSGrOVqVkYRJ_Eq2tRCmOC8fuRa6u0nlBKeSwz8");
   </script>
 </body>
 </html>
